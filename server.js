@@ -1,4 +1,5 @@
 window.Server = function () {
+    
     var firebaseConfig = {
         apiKey: "AIzaSyBstj57SwN_4pM4GTjQCtrW2lsFoUSBcxs",
         authDomain: "collab-28cd7.firebaseapp.com",
@@ -15,9 +16,11 @@ window.Server = function () {
     this.authorsRef = firebase.database().ref().child('authors');
     this.widgetsRef = firebase.database().ref().child('widgets');
     this.fieldRefs = firebase.database().ref().child('field')
+    
 };
 
 Server.prototype.bind = function (action, callbackFunction) {
+    
     switch (action) {
         case 'onAuthStateChanged':
             firebase.auth().onAuthStateChanged(callbackFunction);
@@ -47,9 +50,11 @@ Server.prototype.bind = function (action, callbackFunction) {
             console.error('The action is not defined.');
             break;
     }
+    
 };
 
 Server.prototype.checkAuthor = function (authorId, openReturningAuthorPopup, openNewAuthorPopup) {
+    
     this.authorsRef.once('value', authors => {
         if (authors.hasChild(authorId)) {
             this.authorsRef.child(authorId).once('value', author => {
@@ -59,9 +64,11 @@ Server.prototype.checkAuthor = function (authorId, openReturningAuthorPopup, ope
             openNewAuthorPopup();
         }
     });
+    
 };
 
 Server.prototype.signInAnonymously = function () {
+    
     firebase.auth().signInAnonymously().catch(error => {
         if (error.code === 'auth/operation-not-allowed') {
             alert('You must enable Anonymous auth in the Firebase Console.');
@@ -69,6 +76,7 @@ Server.prototype.signInAnonymously = function () {
             console.error(error);
         }
     });
+    
 };
 
 Server.prototype.createAnnotation = function (annotationId, annotationData) {
