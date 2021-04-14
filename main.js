@@ -62,6 +62,7 @@ $(document).ready(() => {
             }
 
             function update_widget_listener() {
+                
                 const widgetAnnotations = annotManager
                     .getAnnotationsList()
                     .filter(annot => annot instanceof Annotations.WidgetAnnotation);
@@ -87,6 +88,7 @@ $(document).ready(() => {
                         annotManager.drawAnnotations(widgetAnnot.PageNumber, null, 1);
                     })
                 }
+                
             }
 
             document.getElementById('next-field').addEventListener('click', () => {
