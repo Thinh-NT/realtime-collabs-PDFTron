@@ -1,0 +1,32 @@
+.tools-tab {
+    width: 10%;
+    float: left;
+}
+#viewer {
+    width: 90%;
+}
+#next-field {
+    background-color: #0f41a0 !important; /* Green */
+    border: none !important;
+    color: white !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    font-size: 16px !important;
+    height: 30px;
+    width: 50px !important;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    float: right;
+    margin-top: 80px;
+  }
+  #next-field:hover {
+    background-color: #4a7ff0 !important; 
+    color: white !important;
+  }
+  #next-field:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(2px);
+  }
+  
