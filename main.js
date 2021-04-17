@@ -74,18 +74,9 @@ $(document).ready(() => {
                     console.log("index: ", index)
 
                     widgetAnnot.on('focus', () => {
-                        Annotations.WidgetAnnotation.getContainerCustomStyles = widget => {
-                            // use some way to find that certain widget
-                            if (widget === widgetAnnot) {
-                                return {
-                                    'background-color': 'red',
-                                    color: 'white',
-                                };
-                            }
-                        };
-
-                        annotManager.jumpToAnnotation(widgetAnnot);
-                        annotManager.drawAnnotations(widgetAnnot.PageNumber, null, 1);
+                        const input = document.getElementById('webviewer-1').contentDocument.getElementById(widgetAnnot.getField().name).children[0];
+                        input.style.backgroundColor = 'red';
+                        input.style.color = 'white';
                     })
                 }
                 
